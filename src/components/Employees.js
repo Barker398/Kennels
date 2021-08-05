@@ -3,7 +3,7 @@ import "./Employees.css"
 
 export const Employees = () => (
     <section className="employee">
-        <h3 className="employee_name">Samantha Denton</h3>
-        <div className="employee_location">Nashville Kennels North</div>
+        <h3 className="employee__name">Chris Barker</h3>
+        <div className="employee__location">Nashville Kennels North</div>
     </section>
 ) 
