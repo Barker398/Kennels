@@ -1,5 +1,5 @@
 import React from "react"
-import "./Locations.css"
+import "./location/Locations.css"
 
 export const Locations = () => (
     <section className="location">
