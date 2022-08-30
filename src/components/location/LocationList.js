@@ -5,7 +5,7 @@ import "./Locations.css"
 
 
 export const LocationList = () => {
-    const { locations, getLocations } = useContext(LocationContext)
+    const { locations, getLocations, removeLocation } = useContext(LocationContext)
 
     const history = useHistory()
 
@@ -13,6 +13,13 @@ export const LocationList = () => {
         console.log("LocationList: useEffect - getLocations")
         getLocations()
     }, [])
+
+    const handleDelete = (locationId) => {
+       removeLocation(locationId)
+       .then(() => {
+        history.push("/locations")
+       }) 
+    }
 
     return (
         <>
@@ -37,6 +44,9 @@ export const LocationList = () => {
                                     <div className="location__totAnimal">{location.animals.length} Animals</div>
                                     <div className="location__totEmployee">{location.employees.length} Employees</div>
                                 </section>
+                                <button className="delete" onClick={
+                                    () => handleDelete(location.id)
+                                }>Remove Location</button>
                             </div>
                         )
                     })
@@ -45,13 +55,3 @@ export const LocationList = () => {
         </>
     )
 }
-
-
-// <div className="location" key={location.id} id={`location--${location.id}`}>
-                            //     <div className="location__name">
-                            //         Name: { location.name }
-                            //     </div>
-                            //     <div className="location__address">
-                            //         Location: { location.address }
-                            //     </div>
-                            // </div>
