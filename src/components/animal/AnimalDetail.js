@@ -38,7 +38,7 @@ export const AnimalDetail = (props) => {
     <section className="animal">
         <h3 className="animal__name">{ props.animal.name }</h3>
         <div className="animal__breed">{ props.animal.breed }</div>
-        <div className="animal__location">Location: { animal.location.name }</div>
+        <div className="animal__location">Location: { props.animal.location.name }</div>
         <div className="animal__owner">Customer: { props.animal.customer.name }</div>
     </section>
     </>
