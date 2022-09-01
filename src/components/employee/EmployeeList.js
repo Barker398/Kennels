@@ -4,7 +4,7 @@ import "./Employees.css"
 import { useHistory, Link } from 'react-router-dom'
 
 export const EmployeeList = () => {
-    const { employees, getEmployees } = useContext(EmployeeContext)
+    const { employees, getEmployees, removeEmployee } = useContext(EmployeeContext)
 
     const history = useHistory()
 
@@ -13,6 +13,12 @@ export const EmployeeList = () => {
         getEmployees()
     }, [])
 
+    const handleDelete = (employeeId) => {
+        removeEmployee(employeeId)
+        .then(() => {
+            history.push("/employees")
+        })
+    }
     return (
         <>
             <h2>Employees</h2>
@@ -30,6 +36,9 @@ export const EmployeeList = () => {
                         <Link to={`/employees/detail/${employee.id}`} key={employee.id}>
                           {employee.name}
                         </Link>
+                        <button className="delete" onClick={
+                            () => handleDelete(employee.id)
+                        }>Fire Employee</button>
                         </div> 
                     )
                 })
