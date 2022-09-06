@@ -1,0 +1,9 @@
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+div.quote{
+    display: flex;
+    justify-content: center;
+}
