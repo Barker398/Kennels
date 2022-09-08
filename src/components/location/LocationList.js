@@ -15,21 +15,15 @@ export const LocationList = () => {
     }, [])
 
     const handleDelete = (locationId) => {
-       removeLocation(locationId)
-       .then(() => {
-        history.push("/locations")
-       }) 
+        removeLocation(locationId)
+            .then(() => {
+                history.push("/locations")
+            })
     }
 
     return (
         <>
             <h2>Locations</h2>
-            <button onClick={
-                () => history.push("/locations/create")
-            }>
-                Add Location
-            </button>
-
             <section className="locations">
                 {
                     locations.map(location => {
@@ -48,10 +42,16 @@ export const LocationList = () => {
                                     () => handleDelete(location.id)
                                 }>Remove Location</button>
                             </div>
+
                         )
                     })
                 }
             </section>
+            <button className="add" onClick={
+                () => history.push("/locations/create")
+            }>
+                Add Location
+            </button>
         </>
     )
 }
